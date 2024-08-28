@@ -1,11 +1,11 @@
 "use client";
 
-import React, { Children, createContext, useContext, useState  } from "react";
+import React, { createContext, useContext, useState } from "react";
 
 const TgleThmContext = createContext(null);
 
 export default function ToggleThmeContext(
-  {Children} : {children: React.ReactNode}
+  { children }: { children: React.ReactNode }
 ) {
   const [isDarkTheme, setIsDarkTheme] = useState(true);
 
@@ -14,10 +14,10 @@ export default function ToggleThmeContext(
   }
 
   return (
-    <TgleThmContext.Provider value={{isDarkTheme, toggleThme}}>
-      {Children}
+    <TgleThmContext.Provider value={{ isDarkTheme, toggleThme }}>
+      {children}
     </TgleThmContext.Provider>
   )
 }
 
-export const ThemeContext =  () => useContext(TgleThmContext)
+export const ThemeContext = () => useContext(TgleThmContext);
